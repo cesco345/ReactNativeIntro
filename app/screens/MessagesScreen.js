@@ -1,15 +1,7 @@
 import React, { useState } from "react";
-import {
-  FlatList,
-  StyleSheet,
-  View,
-  StatusBar,
-  Platform,
-  SafeAreaView,
-} from "react-native";
-import { Swipeable } from "react-native-gesture-handler";
-import "react-native-gesture-handler";
+import { FlatList, StyleSheet, View } from "react-native";
 
+import Screen from "../components/Screen";
 import ListItem from "../components/ListItem";
 import ListItemSeparator from "../components/ListItemSeparator";
 import ListItemDeleteAction from "../components/ListItemDeleteAction";
@@ -39,7 +31,7 @@ function MessagesScreen(props) {
   };
 
   return (
-    <SafeAreaView style={styles.screen}>
+    <Screen>
       <FlatList
         data={messages}
         keyExtractor={(message) => message.id.toString()}
@@ -67,14 +59,10 @@ function MessagesScreen(props) {
           ]);
         }}
       />
-    </SafeAreaView>
+    </Screen>
   );
 }
 
-const styles = StyleSheet.create({
-  screen: {
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-  },
-});
+const styles = StyleSheet.create({});
 
 export default MessagesScreen;
